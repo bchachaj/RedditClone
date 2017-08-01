@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RedditClone</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <% if current_user %>
+  <h2>works</h2>
+  <p id="username"><%= current_user.username %></p>
+  <% end %>
+
+  <% if current_user %>
+  <h1>HELLO</h1>
+  <% end %>
+
+<%= yield %>
+
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+   <%= error %>
+  <% end %>
+<% end %>
+
+</body>
+</html>

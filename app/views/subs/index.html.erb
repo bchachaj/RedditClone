@@ -1,0 +1,11 @@
+<h2>All Subreddits</h2>
+
+<ol>
+<% @subs.each do |sub_| %>
+<li>
+  <h3> <%= sub_.title %></h3>
+  <p><%= sub_.description %></p>
+</li>
+<% end %>
+
+</ol>
