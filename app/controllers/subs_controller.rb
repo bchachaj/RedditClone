@@ -9,13 +9,13 @@ class SubsController < ApplicationController
 
   def edit
     @sub = Sub.find(params[:id])
-
     render :edit
   end
 
   def create
     @sub = Sub.new(sub_params)
     @sub.id = current_user.id
+
     if @sub.save
       redirect_to sub_url(@sub)
     else

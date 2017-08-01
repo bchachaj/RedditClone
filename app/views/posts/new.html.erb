@@ -11,9 +11,17 @@
   <input type="textarea" name="post[content]" value="<%= @post.content %>">
 
   </label>
+  <br>
 
+  <% Sub.all.each do |sub| %>
+    <label>
 
-  <input type="hidden" name="post[sub_id]" value="<%= Sub.first %>">
+      <input type="checkbox"
+       name="post[sub_ids][]"
+        value="<%= sub.id %>">
+    </label><%= sub.title %><br>
+  <% end %>
+
   <!-- <input type="text" name="post[sub]" value=""> -->
 
   <input type="submit" name="" value="New Post">

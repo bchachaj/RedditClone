@@ -1,10 +1,11 @@
 class Post < ActiveRecord::Base
-  validates :title, :sub_id, presence: true
+  validates :title, :subs, presence: true
 
-  belongs_to :sub,
-    class_name: 'Sub',
-    primary_key: :id,
-    foreign_key: 'sub_id'
+#has_many
+  has_many :post_subs, inverse_of: :post, dependent: :destroy
+  has_many :subs, through: :post_subs, source: :sub
 
   belongs_to :author
+
+
 end

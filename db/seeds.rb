@@ -22,7 +22,7 @@ require 'faker'
   30.times do
     Post.create!(
     title: Faker::Hipster.sentence,
-    sub: subs.sample,
+    sub_ids: subs.sample(2)
     author_id: 1
      )
    end

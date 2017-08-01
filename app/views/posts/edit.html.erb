@@ -12,11 +12,18 @@
   <input type="textarea" name="post[content]" value="<%= @post.content %>">
   </label>
 
-  <select>
-     <% @subs.each do |sub_| %>
-     <option value="<%= sub_.id %>"><%= sub_.title %></option>
-     <% end  %>
-  </select>
+
+    <% Sub.all.each do |sub| %>
+      <label>
+        <input type="checkbox"
+         name="post[sub_ids]"
+          value="<%= sub.id %>">
+          <!-- <%#= "checked" if @post.sub_ids.include?(sub_id) %> -->
+          
+
+      </label>
+    <% end %>
+
 
   <input type="submit" name="" value="Edit Post">
 </form>
