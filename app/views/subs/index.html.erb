@@ -2,9 +2,12 @@
 
 <ol>
 <% @subs.each do |sub_| %>
-<li>
-  <h3> <%= sub_.title %></h3>
+<li class="sub">
+  <a href="<%= sub_url(sub_) %>"><h3> <%= sub_.title %></h3></a>
   <p><%= sub_.description %></p>
+  <a class="edit-sub" href="<%= edit_sub_url(sub_) %>">Edit</a>
+
+
 </li>
 <% end %>
 

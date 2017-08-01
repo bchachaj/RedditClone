@@ -7,14 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <h1>Reddit 2.0</h1>
   <% if current_user %>
-  <h2>works</h2>
-  <p id="username"><%= current_user.username %></p>
+  <div class="user_control">
+
+    <p><%= current_user.username %></p>
+    <form action="<%= session_url %>" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+       <input type="submit" name="" value="Sign Out">
+
+    </form>
+  </div>
   <% end %>
 
-  <% if current_user %>
-  <h1>HELLO</h1>
-  <% end %>
 
 <%= yield %>
 

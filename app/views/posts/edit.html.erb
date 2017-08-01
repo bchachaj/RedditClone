@@ -1,0 +1,22 @@
+<h2>Edit Post</h2>
+<form action="<%= post_url(@post) %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH">
+  <label>
+  Title:
+  <input type="text" name="post[title]" value="<%= @post.title %>">
+  </label>
+
+  <label>
+  Content:
+  <input type="textarea" name="post[content]" value="<%= @post.content %>">
+  </label>
+
+  <select>
+     <% @subs.each do |sub_| %>
+     <option value="<%= sub_.title %>"><%= sub_.title %></option>
+     <% end  %>
+  </select>
+
+  <input type="submit" name="" value="Edit Post">
+</form>

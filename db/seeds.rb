@@ -8,11 +8,21 @@
 require 'faker'
 
   Sub.destroy_all
-
+   subs = []
   10.times do
-    Sub.create!(
-    title: Faker::Book.title,
+    subs << Sub.create!(
+    title: Faker::Hipster.sentence,
     description: Faker::Hipster.paragraph,
     user_id: 1
      )
-  end
+   end
+
+  Post.destroy_all
+
+  30.times do
+    Post.create!(
+    title: Faker::Hipster.sentence,
+    sub: subs.sample,
+    author_id: 1
+     )
+   end

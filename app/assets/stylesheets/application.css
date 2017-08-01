@@ -19,6 +19,45 @@ body {
   margin: 0 auto;
   font-family: sans-serif;
 }
+
+.sub {
+  position: relative;
+}
+.edit-sub {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: orange;
+}
+.edit-sub:hover {
+  color: red;
+}
+a {
+  text-decoration: none;
+  color: teal;
+
+}
+
+h1 {
+  color: teal;
+}
+a:hover {
+  color: green;
+}
+
+form {
+  margin: 10px auto;
+  max-width: 50%;
+
+
+}
+form > * {
+  padding: 10px;
+}
+
+form input {
+
+}
 h1, h2 {
   text-align: center;
 }
@@ -39,4 +78,18 @@ ol li:nth-of-type(odd) {
   position: absolute;
   top: 5px;
   left: 5px;
+}
+
+.user_control {
+  position: absolute;
+  top: 5px;
+  right: 50px;
+  display: flex;
+  align-content: center;
+}
+
+.user_control form {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
 }

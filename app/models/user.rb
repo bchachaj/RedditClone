@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
     user
   end
 
-  def self.reset_session_token!
+  def reset_session_token!
     self.session_token = User.generate_session_token
     self.save!
     self.session_token
@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   end
 
   def is_password?(password)
-    BCyrpt::Password.new(self.password_digest).is_password?(password)
+    BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
   def ensure_session_token

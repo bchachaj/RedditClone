@@ -9,6 +9,8 @@ class SubsController < ApplicationController
 
   def edit
     @sub = Sub.find(params[:id])
+
+    render :edit
   end
 
   def create
@@ -23,8 +25,8 @@ class SubsController < ApplicationController
   end
 
   def update
-    @sub = Sub.find_by(params[:id])
-    if @sub.update(sub_params) && @sub.id == current_user.id
+    @sub = Sub.find(params[:id])
+    if @sub.update(sub_params)
       redirect_to sub_url(@sub)
     else
       flash.now[:errors] = @sub.errors.full_messages
@@ -45,7 +47,7 @@ class SubsController < ApplicationController
   private
 
   def sub_params
-    params.permit(:sub).require(:title, :description)
+    params.require(:sub).permit(:title, :description)
   end
 
 end
