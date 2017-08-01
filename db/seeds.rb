@@ -7,22 +7,51 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'faker'
 
-  Sub.destroy_all
-   subs = []
-  10.times do
-    subs << Sub.create!(
-    title: Faker::Hipster.sentence,
-    description: Faker::Hipster.paragraph,
-    user_id: 1
-     )
-   end
 
-  Post.destroy_all
+  #  subs = []
+  # 10.times do
+  #   subs << Sub.create!(
+  #   title: Faker::Hipster.sentence,
+  #   description: Faker::Hipster.paragraph,
+  #   user_id: 1
+  #    )
+  #  end
 
-  30.times do
+   Sub.create!(
+  title: Faker::Hipster.sentence,
+  description: Faker::Hipster.paragraph,
+  user_id: 1
+   )
+   Sub.create!(
+  title: Faker::Hipster.sentence,
+  description: Faker::Hipster.paragraph,
+  user_id: 2
+   )
+
+  Post.create!(
+  title: Faker::Hipster.sentence,
+  content: "Work OK",
+  sub_ids: [1],
+  author_id: 1
+   )
+
+   Post.create!(
+   title: Faker::Hipster.sentence,
+   content: "Work OK",
+   sub_ids: [1,2],
+   author_id: 2
+    )
+
     Post.create!(
     title: Faker::Hipster.sentence,
-    sub_ids: subs.sample(2)
-    author_id: 1
+    content: "Work OK",
+    sub_ids: [2],
+    author_id: 2
      )
-   end
+  # 30.times do
+  #   Post.create!(
+  #   title: Faker::Hipster.sentence,
+  #   sub_ids: subs.sample(2),
+  #   author_id: 1
+  #    )
+  #  end
