@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  validates :title, :sub, presence: true
+  validates :title, :sub_id, presence: true
 
   belongs_to :sub,
     class_name: 'Sub',
